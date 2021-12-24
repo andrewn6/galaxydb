@@ -49,4 +49,43 @@ type Configuration struct {
       Passphrase string
 }
 
+func InitializeConfiguration() Configuration {
+        var config, err = InitializeFromConfig()
+        if err != nil {
+                config.SetDefaultParams()
+        }
 
+        return config
+}
+
+func (conf *Configuration) SetDefaultParams() {
+        conf.KeyspaceSize = DEFAULT_KEYSPACE_SIZE
+        conf.SysMetricInterval = DEFAULT_SYS_METRIC_INTERVAL
+        conf.AppMetricInterval = DEFAULT_APP_METRIC_INTERVAL
+        conf.DefaultTTL = DEFAULT_TTL
+        conf.CrawlerInterval = DEFAULT_CRAWLER_INTERVAL
+        conf.SnapshotInterval = DEFAULT_SNAPSHOT_INTERVAL
+        conf.PersistenceAOF = DEFAULT_AOF_PERSISTENCE
+        conf.AofMaxBytes = DEFAULT_AOF_MAX_BYTES
+        conf.EntryTimestamp = DEFAULT_ENTRY_TIMESTAMP
+        conf.EnableEncryption = DEFAULT_ENABLE_ENCRYPTION
+        conf.Passphrase = DEFAULT_PASSPHRASE
+}
+
+func InitializeFromConfig() (Configuration, error) {
+        var config Configuration
+
+        file, err := ioutil.ReadFile(CONFIG_FILE)
+
+        if err != nil {
+                return Configuration{}, err
+        }
+
+        err = json.Unmarshal(file, &config)
+
+        if err != nil {
+                return Configuration{}, err
+        }
+
+        return config, nil
+}
