@@ -8,6 +8,7 @@ Author: Andrew N (git@nijmeh.xyz)
 - Data is stored via keys
 - Operations
 - Grafana support
+- Simple operations (Put, Get, Delete)
 
 ## Documentation
 
