@@ -1,4 +1,4 @@
-module galaxydb/db
+module github.com/anddddrew/galaxydb 
 
 go 1.17
 
