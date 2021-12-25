@@ -1,0 +1,13 @@
+{
+  "keyspaceSize": 65536,
+  "sysMetricInterval": 10,
+  "appMetricInteral": 10,
+  "defaultTTL": -1,
+  "crawlerInterval": 300,
+  "snapshotInterval": 3600,
+  "snapshotEnabled": true,
+  "persistenceAOF": false,
+  "aofMaxByteSize": 70000000,
+  "enableEncryption": true,
+  "passphrase": "galaxydb",
+}
