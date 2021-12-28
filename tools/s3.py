@@ -1,4 +1,5 @@
 # https://stackoverflow.com/questions/36138250/how-do-i-test-methods-using-boto3-with-moto
+ 
 import boto
 import unittest
 from boto.s3.key import Key
@@ -31,7 +32,6 @@ class TestS3Actor(unittest.TestCase):
         keys = list(bucket.objects.filter(Prefix=self.key_name))
         assert len(keys) == 1
         assert keys[0].key == self.key_name
-        
         s3.Object(self.bucket_name, self.key_name).put(Body="new")
         key = s3.Object(self.bucket_name, self.key_name).get()
         assert 'new' == key["Body"].read()
