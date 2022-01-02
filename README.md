@@ -18,4 +18,7 @@ Simply run
 
 ```./build```
 
+
+## Nix
+A Flake is also available in this repository and can be used like so:
 ## Contributing
