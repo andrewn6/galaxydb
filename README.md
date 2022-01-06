@@ -21,4 +21,7 @@ Simply run
 
 ## Nix
 A Flake is also available in this repository and can be used like so:
+
+```nix shell```
+
 ## Contributing
